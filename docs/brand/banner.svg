@@ -1,0 +1,81 @@
+<svg width="1200" height="340" viewBox="0 0 1200 340" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Columnly — Discover, Share, and Connect">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="340" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#15121F"/>
+      <stop offset="0.55" stop-color="#1E1933"/>
+      <stop offset="1" stop-color="#2A2148"/>
+    </linearGradient>
+    <linearGradient id="mark" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#8B82F0"/>
+      <stop offset="1" stop-color="#4B44A8"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#7068D4"/>
+      <stop offset="1" stop-color="#FF8A1F"/>
+    </linearGradient>
+    <radialGradient id="glow1" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1040 40) rotate(135) scale(430 270)">
+      <stop stop-color="#7068D4" stop-opacity="0.42"/>
+      <stop offset="1" stop-color="#7068D4" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(110 330) rotate(-45) scale(400 240)">
+      <stop stop-color="#FF7A00" stop-opacity="0.20"/>
+      <stop offset="1" stop-color="#FF7A00" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="dots" width="34" height="34" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.6" fill="#FFFFFF" fill-opacity="0.09"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="340" rx="24" fill="url(#bg)"/>
+  <rect width="1200" height="340" rx="24" fill="url(#dots)"/>
+  <rect width="1200" height="340" rx="24" fill="url(#glow1)"/>
+  <rect width="1200" height="340" rx="24" fill="url(#glow2)"/>
+  <rect x="0.75" y="0.75" width="1198.5" height="338.5" rx="23.25" fill="none" stroke="#FFFFFF" stroke-opacity="0.10" stroke-width="1.5"/>
+
+  <!-- Brand mark -->
+  <g transform="translate(72 72)">
+    <rect width="96" height="96" rx="23" fill="url(#mark)"/>
+    <rect x="17" y="17" width="14" height="62" rx="7" fill="#FFFFFF" fill-opacity="0.96"/>
+    <rect x="40" y="32" width="14" height="47" rx="7" fill="#FFFFFF" fill-opacity="0.72"/>
+    <rect x="63" y="47" width="14" height="32" rx="7" fill="#FFFFFF" fill-opacity="0.48"/>
+    <circle cx="81" cy="16" r="8.5" fill="#E99520"/>
+    <circle cx="81" cy="16" r="4.8" fill="#F7C060"/>
+  </g>
+
+  <!-- Wordmark and tagline -->
+  <text x="192" y="146" font-family="Syne, Inter, system-ui, sans-serif" font-size="62" font-weight="700" letter-spacing="-1.5" fill="#FFFFFF">Columnly</text>
+  <text x="194" y="188" font-family="Inter, system-ui, sans-serif" font-size="23" fill="#C9C3EE">Discover, Share, and Connect</text>
+  <text x="194" y="224" font-family="Inter, system-ui, sans-serif" font-size="15" letter-spacing="0.2" fill="#8E87BA">A full-stack blogging platform built with React, Express and MongoDB</text>
+
+  <!-- Tech chips -->
+  <g font-family="Inter, system-ui, sans-serif" font-size="13" fill="#D8D3F2">
+    <rect x="194" y="252" width="94" height="30" rx="15" fill="#FFFFFF" fill-opacity="0.08" stroke="#FFFFFF" stroke-opacity="0.10"/>
+    <text x="241" y="272" text-anchor="middle">React 19</text>
+    <rect x="298" y="252" width="106" height="30" rx="15" fill="#FFFFFF" fill-opacity="0.08" stroke="#FFFFFF" stroke-opacity="0.10"/>
+    <text x="351" y="272" text-anchor="middle">TypeScript</text>
+    <rect x="414" y="252" width="98" height="30" rx="15" fill="#FFFFFF" fill-opacity="0.08" stroke="#FFFFFF" stroke-opacity="0.10"/>
+    <text x="463" y="272" text-anchor="middle">Express 5</text>
+    <rect x="522" y="252" width="102" height="30" rx="15" fill="#FFFFFF" fill-opacity="0.08" stroke="#FFFFFF" stroke-opacity="0.10"/>
+    <text x="573" y="272" text-anchor="middle">MongoDB</text>
+  </g>
+
+  <!-- Blog card illustration -->
+  <g transform="translate(830 96)">
+    <rect x="18" y="18" width="300" height="190" rx="18" fill="#221B3A" stroke="#4A4270" stroke-opacity="0.7"/>
+    <rect x="0" y="0" width="300" height="190" rx="18" fill="#2C2450" stroke="#5A5088" stroke-opacity="0.8"/>
+    <rect x="16" y="16" width="268" height="88" rx="11" fill="url(#card)" fill-opacity="0.92"/>
+    <circle cx="38" cy="40" r="9" fill="#FFFFFF" fill-opacity="0.85"/>
+    <rect x="54" y="35" width="74" height="8" rx="4" fill="#FFFFFF" fill-opacity="0.8"/>
+    <rect x="232" y="32" width="40" height="18" rx="9" fill="#FFFFFF" fill-opacity="0.18"/>
+    <rect x="242" y="39" width="20" height="4" rx="2" fill="#FFFFFF" fill-opacity="0.8"/>
+    <rect x="16" y="120" width="214" height="12" rx="6" fill="#FFFFFF" fill-opacity="0.86"/>
+    <rect x="16" y="142" width="164" height="9" rx="4.5" fill="#CFC9EE" fill-opacity="0.55"/>
+    <rect x="16" y="160" width="116" height="9" rx="4.5" fill="#CFC9EE" fill-opacity="0.33"/>
+    <circle cx="274" cy="164" r="10" fill="#FF8A1F" fill-opacity="0.95"/>
+    <path d="M270 164.5L273 167.5L279 161" fill="none" stroke="#1E1933" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Accent ring -->
+  <circle cx="1112" cy="286" r="22" fill="none" stroke="#FF8A1F" stroke-opacity="0.55" stroke-width="2"/>
+  <circle cx="1112" cy="286" r="6" fill="#FF8A1F" fill-opacity="0.9"/>
+</svg>
