@@ -208,6 +208,7 @@ columnly/
 | `/admin/blogs/:slug/edit` | Admin | Edit a post, its status, and banner. |
 | `/admin/comments` | Admin | Moderate all comments. |
 | `/admin/users` | Admin | Browse and manage users. |
+| `/settings` | Authenticated | Form action endpoint used by the profile settings forms. |
 | `/refresh-token` | Public | Refreshes the session and redirects back. |
 
 > Unauthenticated visitors who open an admin route are redirected to `/`; signed-in non-admins are also redirected after the role check.
@@ -341,7 +342,7 @@ export const columnlyApi = axios.create({
 | Blogs | `GET /blogs`, `GET /blogs/:slug`, `POST /blogs`, `PUT /blogs/:slug`, `DELETE /blogs/:blogId` |
 | Admin | `GET /users`, `DELETE /users/:userId`, `GET /comments` |
 
-See the [API README](https://github.com/RexSixT9/columnly-api#api-reference) for request bodies, validation rules, and response formats.
+See the [API README](https://github.com/RexSixT9/columnly-api#endpoints) for request bodies, validation rules, and response formats.
 
 ## Troubleshooting
 
