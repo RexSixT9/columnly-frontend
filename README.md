@@ -1,8 +1,8 @@
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="src/assets/columnly-dark.svg">
-  <img src="src/assets/columnly-light.svg" alt="Columnly — blog platform" width="320">
+  <source media="(prefers-color-scheme: dark)" srcset="src/assets/columnly-navbar-dark.svg">
+  <img src="src/assets/columnly-navbar-light.svg" alt="Columnly — blog platform" width="300">
 </picture>
 
 # Columnly
@@ -16,7 +16,7 @@
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](#contributing)
 
-[Frontend](https://github.com/RexSixT9/columnly) · [API](https://github.com/RexSixT9/columnly-api) · [Report a bug](https://github.com/RexSixT9/columnly/issues) · [Request a feature](https://github.com/RexSixT9/columnly/issues)
+[Frontend](https://github.com/RexSixT9/columnly-frontend) · [API](https://github.com/RexSixT9/columnly-api) · [Report a bug](https://github.com/RexSixT9/columnly-frontend/issues) · [Request a feature](https://github.com/RexSixT9/columnly-frontend/issues)
 
 </div>
 
@@ -35,6 +35,7 @@
 - [Environment Variables](#environment-variables)
 - [Available Scripts](#available-scripts)
 - [Connecting to the API](#connecting-to-the-api)
+- [Deployment](#deployment)
 - [Troubleshooting](#troubleshooting)
 - [Contributing](#contributing)
 - [License](#license)
@@ -46,12 +47,26 @@ Columnly is a modern blogging platform where readers discover articles and edito
 
 | Repository | Stack | Purpose |
 | --- | --- | --- |
-| **columnly** (this repo) | React 19 · TypeScript · Vite · Tailwind CSS 4 | Public site and admin dashboard |
+| **columnly-frontend** (this repo) | React 19 · TypeScript · Vite · Tailwind CSS 4 | Public site and admin dashboard |
 | **[columnly-api](https://github.com/RexSixT9/columnly-api)** | Express 5 · TypeScript · MongoDB · Mongoose | REST API, authentication, storage |
 
 The frontend is a single-page application that talks to the API over `/api/v1`. It uses React Router data APIs (`loaders` and `actions`) for data fetching and mutations, keeps the short-lived access token in `localStorage`, and relies on an HTTP-only refresh cookie to renew sessions.
 
 ## Screenshots
+
+<div align="center">
+
+**Home — signed-in view**
+
+<img src="docs/screenshots/home.png" alt="Columnly home page with recent articles" width="100%">
+
+<br><br>
+
+**Admin dashboard — signed-in editor view**
+
+<img src="docs/screenshots/dashboard.png" alt="Columnly admin dashboard with blog, user and comment stats" width="100%">
+
+</div>
 
 <table>
   <tr>
@@ -66,7 +81,7 @@ The frontend is a single-page application that talks to the API over `/api/v1`. 
   </tr>
 </table>
 
-> Screenshots were captured from the running app in its default dark theme and live in [`docs/screenshots`](docs/screenshots).
+> All screenshots were captured at 1440 × 900 in dark mode and live in [`docs/screenshots`](docs/screenshots). The home and dashboard views show a signed-in session.
 
 ## Features
 
@@ -157,8 +172,9 @@ flowchart LR
 ## Project Structure
 
 ```text
-columnly/
+columnly-frontend/
 ├── docs/
+│   ├── brand/                  # README banner and brand assets
 │   └── screenshots/            # README screenshots
 ├── public/
 │   └── favicon.svg
@@ -217,14 +233,14 @@ columnly/
 
 ### Prerequisites
 
-- **Node.js 20+** and npm
+- **Node.js 20.19+** (or 22.12+) and npm
 - The **[columnly-api](https://github.com/RexSixT9/columnly-api)** running locally (or a deployed instance)
 - A MongoDB database and Cloudinary account for the API
 
 ### 1. Clone both repositories
 
 ```bash
-git clone https://github.com/RexSixT9/columnly.git
+git clone https://github.com/RexSixT9/columnly-frontend.git
 git clone https://github.com/RexSixT9/columnly-api.git
 ```
 
@@ -232,7 +248,7 @@ Keep the folders side by side so you can run both servers:
 
 ```text
 columnly-workspace/
-├── columnly/
+├── columnly-frontend/
 └── columnly-api/
 ```
 
@@ -247,12 +263,12 @@ cp .env.example .env    # then fill in MongoDB, JWT, and Cloudinary values
 npm run dev
 ```
 
-The API starts on **http://localhost:3000** by default (or whichever `PORT` you configured — the API's `.env.example` uses `5000`) and exposes routes under `/api/v1`.
+The API starts on **http://localhost:3000** by default (the API's `.env.example` suggests `5000`, so use whichever `PORT` you set) and exposes routes under `/api/v1`.
 
 ### 3. Install the frontend
 
 ```bash
-cd ../columnly
+cd ../columnly-frontend
 npm install
 ```
 
@@ -268,7 +284,7 @@ Set the API base URL:
 VITE_API_BASE_URL=http://localhost:3000/api/v1
 ```
 
-Make sure the port matches the API's `PORT` value. If you kept the value from the API's `.env.example`, use `http://localhost:5000/api/v1` instead.
+Make sure the port matches the API's `PORT` value. If you kept `PORT=5000` from the API's `.env.example`, use `http://localhost:5000/api/v1` instead.
 
 > On PowerShell use `Copy-Item .env.example .env.local`.
 
@@ -343,6 +359,18 @@ export const columnlyApi = axios.create({
 | Admin | `GET /users`, `DELETE /users/:userId`, `GET /comments` |
 
 See the [API README](https://github.com/RexSixT9/columnly-api#endpoints) for request bodies, validation rules, and response formats.
+
+## Deployment
+
+The app is a static SPA, so any host that serves files works:
+
+1. Set `VITE_API_BASE_URL` to the deployed API URL, including `/api/v1`.
+2. Run `npm run build` — the output is written to `dist/`.
+3. Deploy `dist/` to Vercel, Netlify, Cloudflare Pages, GitHub Pages or Nginx.
+4. Add an SPA rewrite so unknown paths fall back to `index.html` (React Router handles the route).
+5. Add the deployed origin to the API's CORS allow-list in `columnly-api/src/config/index.ts`.
+
+> The access token is kept in `localStorage`, so the site should be served over HTTPS in production. Both the web client and the API must use the same scheme and host conventions for the refresh cookie to be accepted.
 
 ## Troubleshooting
 
